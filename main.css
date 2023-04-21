@@ -1,0 +1,131 @@
+@media(min-width: 150px){
+#cover img{
+    width: 12.2%;
+    position: static;
+    
+}
+}
+
+#products{
+    background-color: aqua;
+}
+#add{
+    background-color: bisque;
+}
+body{
+    background-color: indianred;
+    
+}
+header{
+    color: black;
+    border: 3px solid;
+}
+
+
+#introduction{
+    text-align: center;
+    font-size: 40px;
+}
+main{
+    background-color: darkviolet;
+    border: 1px solid black;
+}
+
+h1{
+    color: blanchedalmond;
+    text-align: center;
+}
+
+h3{
+    color: darkgray;
+    text-align: center;
+}
+
+a{
+  display: block;
+  padding: 8px;
+  background-color: palevioletred;
+}
+a:visited{
+    color: purple;
+}
+
+#description{
+    text-align: center;
+    font-size: 20;
+}
+
+#navBody ul{
+    
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+#details{
+    background-color: darkgray;
+}
+#navBody ul li{
+    float: left;
+    display: inline;
+    padding: 10px;
+    
+}
+#navBody ul li a:hover{
+    background-color: #111;
+}
+#navBody ul li a:focus{
+    background-color: #111;
+}
+
+footer{
+    border: 1px solid black;
+    font-size:xx-small ;
+}
+footer div nav{
+    display: flex;
+    justify-content: center;
+    padding: 0px auto;
+    margin: 0px auto;
+}
+#navEnd ul{
+    display: flex;
+    justify-content: center;
+    margin: 0px auto;
+}
+#navEnd ul li{
+    list-style: none;
+    padding: 2px 5px;
+    border-right: 1px;
+}
+#navEnd ul li a{
+    color: purple;
+    text-decoration: none;
+}
+#navEnd ul li a:hover{
+    background-color: #227C70;
+}
+#navEnd ul li a:focus{
+    background-color: #227C70;
+}
+
+#conclusion {
+    text-align: center;
+    font-size: x-small;
+}
+#womenP{
+    font-size: x-large;
+    font-style: oblique;
+    position: relative;
+}
+#womenP img{
+    width: 10%;
+}
+#menP{
+    font-size: x-large;
+    font-style: oblique;
+    position: relative;
+}
+#menP img{
+    width: 10%;
+}
