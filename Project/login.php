@@ -20,7 +20,7 @@ require("authentication.php");
                     <label for="password">Password</label>
                         <input type="password" class="form-control" name="password" id="password">
                 <button type="submit" value="submit" name="login">Login</button>
-                <a href="fgt.php" >Reset Password</a>
+                <a href="password.php" >Reset Password</a>
 					<a href="guest.php" >Guest User</a>
                 </form>
             </body>
