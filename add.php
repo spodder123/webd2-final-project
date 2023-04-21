@@ -6,12 +6,15 @@ if(isset($_POST['submit'])){
     $price = $_POST['price'];
     $stock = $_POST['stock'];
     $image = $_POST['image'];
+    $description=$_POST['Description'];
 
-    $stmt = $db->prepare("INSERT INTO products (brand, price, stock, image) VALUES (:brand, :price, :stock, :image)");
+    $stmt = $db->prepare("INSERT INTO products (brand, price, stock, image,Description) VALUES (:brand, :price, :stock, :image,:description)");
     $stmt->bindParam(':brand', $brand);
     $stmt->bindParam(':price', $price);
     $stmt->bindParam(':stock', $stock);
     $stmt->bindParam(':image', $image);
+    $stmt->bindParam(':description', $description);
+
     $stmt->execute();
 
     echo "Product added successfully";
@@ -40,6 +43,8 @@ if(isset($_POST['submit'])){
         <input type="text" name="stock" required><br><br>
         <label for="image">Image:</label>
         <input type="text" name="image" required><br><br>
+        <label for="image">Description:</label>
+        <input type="text" name="Description" required><br><br>
         <input type="submit" name="submit" value="Add Product">
         <a href="index.php">Back to Home</a>
     </form>
