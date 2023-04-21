@@ -115,7 +115,7 @@ try{
         <div id="navBody">
             <nav>
                 <ul>
-                    <li><a href="services.php">Product/Services</a></li>
+                 <!-- <li><a href="services.php">Product/Services</a></li>-->
                 </ul>
             </nav>
         </div>
