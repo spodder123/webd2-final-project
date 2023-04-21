@@ -49,7 +49,7 @@ if (mysqli_num_rows($result) > 0) {
         echo "<form method='post' action=''>";
         echo "<input type='hidden' name='id' value='" . $row['id'] . "'/>";
         echo "<textarea name='comment'>" . $row['comment'] . "</textarea>";
-        echo "<button type='submit' name='edit_comment'>Edit</button>";
+       
         echo "<button type='submit' name='delete_comment'>Delete</button>";
         echo "</form>";
         echo "</div>";
