@@ -12,7 +12,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 $product_id = $_GET['id'];
-// Insert comment
+// Insert comme
 if (isset($_POST['submit_comment'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];

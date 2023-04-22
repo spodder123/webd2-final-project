@@ -12,7 +12,7 @@ if(isset($_POST['delete_product'])) {
     if($count > 0) {
         echo "Product deleted successfully.";
     } else {
-        echo "Product not found.";
+        echo "Product not found.....";
     }
 }
 

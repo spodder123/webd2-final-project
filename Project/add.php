@@ -1,11 +1,10 @@
 <?php
 require('connect.php');
-
 if(isset($_POST['submit'])){
-    $brand = $_POST['brand'];
-    $price = $_POST['price'];
-    $stock = $_POST['stock'];
-    $image = $_POST['image'];
+    $brand = filter_input(INPUT_POST, 'brand', FILTER_SANITIZE_STRING);
+    $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+    $stock = filter_input(INPUT_POST, 'stock', FILTER_SANITIZE_NUMBER_INT);
+    $image = filter_input(INPUT_POST, 'image', FILTER_SANITIZE_URL);
 
     $stmt = $db->prepare("INSERT INTO products (brand, price, stock, image) VALUES (:brand, :price, :stock, :image)");
     $stmt->bindParam(':brand', $brand);
