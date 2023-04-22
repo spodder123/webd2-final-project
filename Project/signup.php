@@ -6,14 +6,20 @@ $errorFlag = false;
 // Check if form was submitted
 if(isset($_POST['submit'])) {
     // Get form data
-    $id = $_POST['id'];
+
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-        
-        $query = "INSERT INTO users (id, name, email,password) VALUES (:id, :name, :email, :password)";
+    $confirm_password = $_POST['confirm_password'];
+    
+    // Check if passwords match
+    if ($password !== $confirm_password) {
+        $errorFlag = true;
+        $errorMessage = "Passwords do not match. Please try again.";
+    } else {
+        $query = "INSERT INTO users (name, email,password) VALUES ( :name, :email, :password)";
         $statement = $db->prepare($query);
-        $statement->bindValue(':id', $id);
+    
         $statement->bindValue(':name', $name);        
         $statement->bindValue(':email', $email);
         $statement->bindValue(':password', $password);
@@ -23,7 +29,7 @@ if(isset($_POST['submit'])) {
         header('Location: login.php');
         exit;
     }
-
+}
 
 ?>
 
@@ -38,8 +44,7 @@ if(isset($_POST['submit'])) {
 <body>
     <h1>Sign Up Form</h1>
     <form method="post" action="signup.php">
-        <label for="id">id:</label>
-        <input type="text" name="id" id="id" required>
+        
 
         <label for="name">name:</label>
         <input type="text" name="name" id="name" required>
@@ -49,8 +54,11 @@ if(isset($_POST['submit'])) {
 
         <label for="password">Password:</label>
         <input type="password" name="password" id="password" required>
+        
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" name="confirm_password" id="confirm_password" required>
 
-        <input type="submit" value="Sign Up">
+        <input type="submit" name="submit" value="Sign Up">
 
     </form>
 
@@ -59,3 +67,4 @@ if(isset($_POST['submit'])) {
     <?php endif ?>
 </body>
 </html>
+

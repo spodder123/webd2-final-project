@@ -23,4 +23,5 @@ require("authentication.php");
                 <a href="password.php" >Reset Password</a>
 					<a href="guest.php" >Guest User</a>
                 </form>
+                <a href="index.php">Back to Home</a>
             </body>

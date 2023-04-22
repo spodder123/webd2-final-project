@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2023 at 04:10 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Apr 21, 2023 at 03:47 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,38 +18,40 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `shudipto`
+-- Database: `serverside`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `products`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `products` (
   `id` int(11) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `email` varchar(250) NOT NULL,
-  `password` varchar(250) NOT NULL
+  `brand` varchar(250) NOT NULL,
+  `price` float NOT NULL,
+  `stock` int(11) NOT NULL,
+  `image` varchar(11) NOT NULL,
+  `Description` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `products`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
-(2, 'test', 'test', 'test'),
-(3, 'test2', 'test2', 'test2');
+INSERT INTO `products` (`id`, `brand`, `price`, `stock`, `image`, `Description`) VALUES
+(1, '', 0, 0, '', ''),
+(3, 'axe', 500, 1, 'not uploade', '');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `users`
+-- Indexes for table `products`
 --
-ALTER TABLE `users`
+ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -57,10 +59,10 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT for table `products`
 --
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

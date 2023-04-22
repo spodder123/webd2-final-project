@@ -2,21 +2,23 @@
 
 require('connect.php');
 
+$content = filter_input(INPUT_GET, 'content', FILTER_SANITIZE_STRING);
+
 $stmt = $db->query("SELECT * FROM products");
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HOME</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="main.css">
-    <title>Document</title>
 </head>
+
 <body>
-<header>
+    <header>
         <h1>Perfume StockX</h1>
         <h3>Your favourite perfumes in the cheapest possible price you can ever get.</h3>
     </header>
@@ -63,26 +65,90 @@ echo '</table>';
             <nav>
                 <ul>
                    
-                    <li><a href="add.php">Add Product</a></li>
-                    <li><a href="edit.php">Edit Product</a></li>
-                    <li><a href="delete.php">Delete  Product</a></li>
+                    <li><a href="services.php">Product/Services</a></li>
                  
                 </ul>
             </nav>
         </div>
     </main>
+    <div id="products" >
+    
+
+</div>
     <div id="description">
         <p>We have all the perfume collections from old to the most recent ones.
         We sell them at the cheapest price possible and we guarantee your money bag if you don't like the product after purchasing.
         Moreover, we give around 15days in-return warranty</p>
         </div>
+    
     <footer>
         <div id="conclusion">
             <p>
                  Red River College||Shudipto Podder
-                 <a href="index.php">Back to Home</a>
             </p>
         </div>
     </footer>
+</body>
+</html>
+
+<?php
+require('connect.php');
+require('login.php');
+$errorFlag = false;
+
+// Check if form was submitted
+if(isset($_POST['submit'])) {
+    // Get form data
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+        
+        $query = "INSERT INTO users (id, name, email,password) VALUES (:id, :name, :email, :password)";
+        $statement = $db->prepare($query);
+        $statement->bindValue(':id', $id);
+        $statement->bindValue(':name', $name);        
+        $statement->bindValue(':email', $email);
+        $statement->bindValue(':password', $password);
+        $statement->execute();
+
+        // Redirect to login page
+        header('Location: login.php');
+        exit;
+    }
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up Form</title>
+    
+
+</head>
+<body>
+    <h1>Sign Up Form</h1>
+    <form method="post" action="signup.php">
+        <label for="id">id:</label>
+        <input type="text" name="id" id="id" required>
+
+        <label for="name">name:</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required>
+
+        <input type="submit" value="Sign Up">
+
+    </form>
+
+    <?php if($errorFlag): ?>
+        <?= $errorMessage ?>
+    <?php endif ?>
 </body>
 </html>
