@@ -1,6 +1,7 @@
 <?php
-require("authentication.php");
 session_start();
+require("authentication.php");
+
 
 // Unset all of the session variables
 $_SESSION = array();
