@@ -25,7 +25,7 @@ $phpmailer->Password = '27e624e937b64e';
     $mail->AltBody = "Hello " . $user["name"] . ",\r\n\r\nYou have requested to reset your password. Please copy and paste the following link in your browser to reset your password:\r\n\r\nhttp://example.com/reset_password.php?email=" . urlencode($email) . "&reset_token=" . urlencode($token) . "\r\n\r\nIf you did not request this reset, please ignore this email.\r\n\r\nThank you,\r\nYour Perfume StockX";
 
     $mail->send();
-    $_SESSION["forgot_password_success"] = "An email with instructions to reset your password has been sent to your email address.";
+    $_SESSION["forgot_password_success"] = "An email with instructions to reset your password has been sent to your email address.If it was not by you please contact us";
 } catch (Exception $e) {
     $_SESSION["forgot_password_error"] = "Error sending email. Please try again later.";
 }
