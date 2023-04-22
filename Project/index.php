@@ -45,7 +45,7 @@ try{
   $result=$db->query($sql);
 }catch(Exception $e) {
   print "Error: " . $e->getMessage();
-  die(); // Force execution to stop on errors.
+  die(); 
 }
 
 ?>
