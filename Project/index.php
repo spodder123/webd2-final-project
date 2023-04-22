@@ -71,7 +71,7 @@ try{
     <div id="introduction">
         <p>Thank you for visiting our website. Hopefully we can make you happy with our products.</p>
     </div>
-
+<?php include("api.php")?>
     <div id="cover">
         <img src="images/perfumes.jpg" alt="">
         <img src="images/perfumes1.jpg" alt="">
